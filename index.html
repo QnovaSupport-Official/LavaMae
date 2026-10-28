@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lava Mae | Dignidad en movimiento</title>
+<style>
+:root{--blue:#0878c9;--navy:#10345d;--sky:#dff4ff;--cream:#fffaf0;--orange:#f2a65a;--green:#79ad78;--ink:#17324d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#dff3fc;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+button{font:inherit;cursor:pointer}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px clamp(16px,4vw,54px);background:#fffaf0;border-bottom:3px solid #b9e2f5;position:sticky;top:0;z-index:5}
+.brand{font-weight:950;letter-spacing:-1.5px;color:var(--blue);font-size:clamp(1.3rem,3vw,2rem)}.brand small{display:block;font-size:.58em;letter-spacing:1px;color:var(--navy)}
+.pill{border:0;border-radius:99px;background:var(--blue);color:white;padding:11px 19px;font-weight:800;box-shadow:0 4px 0 #07599b}.pill:active{transform:translateY(2px);box-shadow:0 2px 0 #07599b}
+main{max-width:1320px;margin:auto;padding:22px clamp(12px,3vw,34px) 50px}
+.hero{display:grid;grid-template-columns:1fr .8fr;gap:22px;align-items:center;background:var(--cream);border:3px solid white;border-radius:28px;padding:clamp(22px,4vw,48px);box-shadow:0 12px 28px #1d6c9020}
+h1{font-size:clamp(2rem,5vw,4.5rem);line-height:.96;margin:0 0 16px;color:var(--blue);letter-spacing:-2px}.subtitle{font-size:clamp(1rem,2vw,1.3rem);font-weight:750;color:var(--navy)}.hero p{max-width:620px;line-height:1.65}
+.hero-photo{width:100%;height:300px;object-fit:cover;border-radius:22px;border:5px solid white;box-shadow:0 8px 20px #17324d20}
+.metrics{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.metric{background:#e7f5ff;border-radius:14px;padding:12px 16px;min-width:130px}.metric strong{display:block;font-size:1.25rem;color:var(--blue)}.metric span{font-size:.82rem}
+.story{margin-top:24px;background:#fffaf0;border:3px solid white;border-radius:26px;padding:clamp(14px,2.5vw,28px);box-shadow:0 12px 28px #1d6c9020}
+.story-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:900;color:#5986a1}.story h2{font-size:clamp(1.45rem,3vw,2.3rem);margin:4px 0 8px;color:var(--navy)}.counter{font-size:.9rem;font-weight:800;background:#e7f5ff;border-radius:99px;padding:8px 13px}
+.map-wrap{position:relative;margin-top:14px;border-radius:22px;overflow:hidden;background:#d9eff9;border:2px solid #c5e5f3;min-height:430px}
+.map-scene{position:relative;min-height:430px;height:min(58vw,640px);overflow:hidden;background:linear-gradient(155deg,#9bdcf8 0 30%,#ccebbd 30% 38%,#f4e3b8 38% 100%)}
+.water{position:absolute;left:0;top:0;width:23%;height:100%;background:linear-gradient(160deg,#66c6ed,#1384c4);clip-path:polygon(0 0,100% 0,72% 17%,92% 32%,66% 50%,87% 70%,60% 100%,0 100%)}
+.hill{position:absolute;right:-5%;top:4%;width:70%;height:44%;background:#a7d49d;clip-path:polygon(0 40%,12% 12%,22% 35%,39% 0,53% 32%,69% 7%,82% 38%,100% 16%,100% 100%,0 100%);opacity:.85}
+.road{position:absolute;background:#fdf7e9;border:3px solid #d6c8a8;border-radius:999px;height:58px;width:120%;left:-8%;top:55%;transform:rotate(-11deg);box-shadow:0 5px 0 #d5c39b}.road:after{content:"";position:absolute;top:50%;left:0;right:0;border-top:3px dashed #d9a65d}
+.road2{position:absolute;background:#fdf7e9;border:3px solid #d6c8a8;border-radius:999px;height:48px;width:120%;left:-5%;top:32%;transform:rotate(18deg);box-shadow:0 4px 0 #d5c39b}.road2:after{content:"";position:absolute;top:50%;left:0;right:0;border-top:3px dashed #d9a65d}
+.city{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(5,1fr);gap:8px;padding:15px;pointer-events:none}
+.house{align-self:center;justify-self:center;width:clamp(24px,4vw,55px);height:clamp(28px,5vw,65px);background:#fff1d5;border:2px solid #b98762;border-radius:4px;position:relative;box-shadow:4px 5px 0 #5b795c30}
+.house:before{content:"";position:absolute;top:-10px;left:-4px;width:calc(100% + 4px);height:16px;background:#d77d59;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.house:after{content:"";position:absolute;bottom:4px;left:40%;width:20%;height:35%;background:#7ebad3;border:1px solid #fff}
+.tree{align-self:center;justify-self:center;width:clamp(20px,3vw,40px);height:clamp(20px,3vw,40px);border-radius:50%;background:#4c9d69;border:3px solid #2d7d50;box-shadow:0 7px 0 -3px #926a47}
+.map-pin{position:absolute;z-index:2;transform:translate(-50%,-50%);border:0;background:white;color:var(--navy);border-radius:999px;padding:8px 12px;display:flex;align-items:center;gap:7px;box-shadow:0 4px 12px #174f702b;font-size:.82rem;font-weight:850;white-space:nowrap}
+.map-pin .dot{width:14px;height:14px;border-radius:50%;background:var(--blue);outline:4px solid #d5f0ff}
+.map-pin.active{background:var(--blue);color:white;outline:3px solid white}.map-pin.active .dot{background:#fff;outline-color:#a8e5ff}
+.pin1{left:30%;top:29%}.pin2{left:55%;top:43%}.pin3{left:75%;top:61%}.pin4{left:43%;top:78%}
+.bus{position:absolute;z-index:3;left:42%;top:56%;width:clamp(120px,22vw,240px);height:70px;background:#0878c9;border:4px solid #07599b;border-radius:14px 23px 10px 10px;transform:rotate(-7deg);box-shadow:0 9px 0 #1b638b44;display:flex;align-items:center;justify-content:center;color:white;font-weight:950;font-size:clamp(.8rem,1.8vw,1.15rem)}
+.bus:before{content:"";position:absolute;top:7px;left:10px;right:20px;height:22px;background:repeating-linear-gradient(90deg,#bfeeff 0 25px,#0878c9 25px 31px);border-radius:5px}.bus:after{content:"💧";position:absolute;right:10px;bottom:6px;font-size:1.2rem}
+.map-note{position:absolute;z-index:3;left:12px;bottom:12px;background:#fffaf0ed;border:1px solid white;border-radius:12px;padding:9px 12px;max-width:260px;font-size:.76rem;line-height:1.35}
+.story-content{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(250px,.9fr);gap:24px;align-items:center;margin-top:22px}.story-img{width:100%;max-height:360px;object-fit:cover;border-radius:20px;cursor:zoom-in;border:4px solid white;box-shadow:0 6px 16px #17324d22;transition:transform .2s}.story-img:hover{transform:scale(1.01)}.caption{font-size:.78rem;color:#5a6c7a;margin-top:7px}
+.story-text p{line-height:1.7}.story-text ul{line-height:1.8;padding-left:20px}.quote-warning{background:#fff1d8;border-left:4px solid #e6a44d;padding:10px 13px;border-radius:8px;font-size:.86rem}
+.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}.progress{display:flex;gap:7px}.progress button{width:11px;height:11px;padding:0;border:0;border-radius:50%;background:#b8d7e7}.progress button.active{background:var(--blue);transform:scale(1.2)}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;font-size:.78rem}.legend span{background:#eaf6fc;border-radius:999px;padding:7px 10px}
+.sources{font-size:.82rem;line-height:1.7;margin-top:18px}.sources a{color:#075da2}.footer{text-align:center;font-size:.78rem;color:#577386;margin-top:24px}
+.modal{position:fixed;inset:0;background:#061a2be8;z-index:20;display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal img{max-width:min(95vw,1300px);max-height:85vh;object-fit:contain;border-radius:12px;box-shadow:0 10px 40px #0008}.modal button{position:absolute;top:18px;right:20px;border:0;border-radius:99px;padding:10px 16px;background:white;color:#123;font-weight:900}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-photo{height:230px}.story-content{grid-template-columns:1fr}.map-scene{height:480px}.map-pin{font-size:.68rem;padding:7px 8px}.bus{left:33%;top:59%}.pin1{left:28%;top:28%}.pin2{left:58%;top:42%}.pin3{left:78%;top:68%}.pin4{left:39%;top:79%}.map-note{max-width:185px;font-size:.68rem}.topbar{position:static}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="brand">Lava Mae <small>DIGNIDAD EN MOVIMIENTO</small></div><button class="pill" id="topContinue">Continuar →</button></header>
+<main>
+<section class="hero" id="inicio">
+ <div>
+  <div class="eyebrow">Infografía interactiva · Caso de estudio</div>
+  <h1>Una ducha.<br>Más dignidad.</h1>
+  <div class="subtitle">Lava Mae: diseño de servicios para la inclusión social</div>
+  <p>En San Francisco, Lava Mae convirtió autobuses en espacios móviles de higiene para personas que experimentaban falta de vivienda. La propuesta puso en el centro la privacidad, el cuidado y la dignidad.</p>
+  <div class="metrics"><div class="metric"><strong>2014–2023</strong><span>Periodo de servicios directos</span></div><div class="metric"><strong>2 regiones</strong><span>Área de la bahía y condado de Los Ángeles</span></div></div>
+  <p class="caption">La página oficial consultada no muestra una cifra acumulada actualizada y verificable de personas atendidas. Por eso no se incluye un total sin respaldo.</p>
+  <button class="pill" id="start">Comenzar recorrido ↓</button>
+ </div>
+ <img class="hero-photo" src="assets/unidad-movil.jpg" alt="Autobús azul adaptado como duchas móviles de Lava Mae" data-zoom>
+</section>
+<section class="story" id="recorrido">
+ <div class="story-head"><div><div class="eyebrow">Sigue los puntos del mapa</div><h2 id="stepTitle">1. El origen en San Francisco</h2></div><div class="counter" id="counter">Paso 1 de 4</div></div>
+ <div class="map-wrap">
+  <div class="map-scene" aria-label="Mapa ilustrado conceptual de una ciudad de San Francisco">
+   <div class="water"></div><div class="hill"></div><div class="road"></div><div class="road2"></div>
+   <div class="city" id="city"></div>
+   <button class="map-pin pin1 active" data-step="0"><i class="dot"></i> Tenderloin / Civic Center</button>
+   <button class="map-pin pin2" data-step="1"><i class="dot"></i> SOMA</button>
+   <button class="map-pin pin3" data-step="2"><i class="dot"></i> Área de la bahía</button>
+   <button class="map-pin pin4" data-step="3"><i class="dot"></i> Los Ángeles</button>
+   <div class="bus">Lava Mae</div>
+   <div class="map-note"><b>Mapa ilustrativo</b><br>Los puntos muestran el recorrido narrativo, no ubicaciones históricas exactas de estacionamiento del autobús.</div>
+  </div>
+ </div>
+ <div class="legend"><span>📍 Zonas y comunidades</span><span>🚌 Servicio móvil</span><span>🚿 Higiene y cuidado</span><span>📷 Toca una foto para ampliarla</span></div>
+ <div class="story-content">
+  <div><img id="storyImage" class="story-img" src="assets/persona-mensaje.jpg" alt="Persona frente a la unidad móvil de Lava Mae" data-zoom><div class="caption" id="imageCaption">Fotografía proporcionada para esta infografía.</div></div>
+  <div class="story-text"><div class="eyebrow" id="stepEyebrow">Inicio del proyecto</div><h2 id="contentTitle">Un servicio que se acerca a las personas</h2><p id="contentText"></p><ul id="contentBullets"></ul><div class="quote-warning" id="quoteWarning">Las fotografías se muestran como registro visual; no se atribuyen testimonios a las personas retratadas.</div></div>
+ </div>
+ <div class="controls"><button class="pill" id="prev">← Anterior</button><div class="progress" id="progress"></div><button class="pill" id="next">Continuar →</button></div>
+</section>
+<section class="story">
+ <div class="eyebrow">¿Qué deja este caso?</div><h2>El diseño también puede cuidar</h2>
+ <div class="story-content">
+  <img class="story-img" src="assets/interior-ducha.jpg" alt="Interior de una ducha móvil adaptada" data-zoom>
+  <div class="story-text"><p>La innovación no estuvo solo en adaptar un vehículo. También consistió en diseñar una experiencia de atención que priorizara la privacidad y el trato respetuoso.</p><ul><li><b>Necesidad:</b> acceso limitado a espacios de higiene.</li><li><b>Respuesta:</b> duchas móviles y atención centrada en las personas.</li><li><b>Aprendizaje:</b> el servicio debe complementarse con redes comunitarias y otros apoyos.</li></ul><p class="caption">Lava Mae dejó de prestar servicios directos en 2023. Su web orienta actualmente hacia programas locales de higiene.</p></div>
+ </div>
+ <div class="sources"><b>Fuentes para ampliar:</b><br><a href="https://www.lavamae.org/impact" target="_blank" rel="noopener">LavaMaeˣ — Our Impact</a> · <a href="https://www.lavamae.org/local" target="_blank" rel="noopener">Programas locales de duchas</a> · <a href="https://www.lavamae.org/archive" target="_blank" rel="noopener">Archivo y reportes del proyecto</a></div>
+</section>
+<div class="footer">Presentación educativa. Mapa esquemático, no cartografía geográfica exacta. Las fotografías se usan como material visual aportado para el proyecto.</div>
+</main>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Fotografía ampliada"><button id="closeModal">Cerrar ✕</button><img id="modalImage" alt="Fotografía ampliada"></div>
+<script>
+const steps=[
+ {title:"1. El origen en San Francisco",eyebrow:"Inicio del proyecto",contentTitle:"Un servicio que se acerca a las personas",text:"En 2014, Lava Mae puso en marcha su primer autobús de duchas móviles en San Francisco. La idea respondió a una necesidad concreta: acceder a higiene personal en condiciones de privacidad y respeto.",image:"assets/persona-mensaje.jpg",alt:"Persona retratada frente a la unidad móvil",caption:"Fotografía proporcionada para esta infografía.",bullets:["Autobuses retirados se adaptaron para ofrecer duchas.","La experiencia de atención fue parte central del diseño."]},
+ {title:"2. La experiencia dentro de la ducha",eyebrow:"Diseño centrado en las personas",contentTitle:"Privacidad, seguridad y accesibilidad",text:"El interior se diseñó como un espacio individual de higiene. Los elementos visibles incluyen ducha, lavamanos, barras de apoyo y superficies fáciles de limpiar.",image:"assets/interior-ducha.jpg",alt:"Interior de una ducha móvil",caption:"Interior de una unidad de ducha móvil.",bullets:["La infraestructura convierte un vehículo en un servicio.","El diseño físico puede apoyar comodidad y autonomía."]},
+ {title:"3. Una respuesta conectada con la comunidad",eyebrow:"Área de la bahía de San Francisco",contentTitle:"El servicio no funciona aislado",text:"Lava Mae trabajó en el área de la bahía y su experiencia ayudó a compartir aprendizajes sobre programas móviles de higiene y atención comunitaria.",image:"assets/ducha-acceso.jpg",alt:"Personal mostrando el espacio de ducha a un usuario",caption:"Imagen del acceso al espacio de higiene.",bullets:["Las alianzas locales son importantes para llegar a las personas.","La ducha atiende una necesidad, pero no resuelve por sí sola la falta de vivienda."]},
+ {title:"4. Alcance y continuidad",eyebrow:"De la operación directa a la red local",contentTitle:"Un legado que requiere colaboración",text:"La organización informa que prestó servicios directos entre 2014 y 2023 en el área de la bahía de San Francisco y el condado de Los Ángeles. Actualmente publica opciones de programas locales para encontrar servicios de higiene.",image:"assets/persona-retrato-2.jpg",alt:"Retrato de una persona frente al vehículo de Lava Mae",caption:"Fotografía proporcionada para esta infografía.",bullets:["Periodo de servicios directos: 2014–2023.","La página oficial consultada no muestra una cifra acumulada actualizada de personas atendidas."]}
+];
+let current=0;
+const $=id=>document.getElementById(id);
+function showStep(i){current=Math.max(0,Math.min(steps.length-1,i));const s=steps[current];
+$('stepTitle').textContent=s.title;$('counter').textContent=`Paso ${current+1} de ${steps.length}`;$('stepEyebrow').textContent=s.eyebrow;$('contentTitle').textContent=s.contentTitle;$('contentText').textContent=s.text;$('storyImage').src=s.image;$('storyImage').alt=s.alt;$('imageCaption').textContent=s.caption;
+$('contentBullets').innerHTML=s.bullets.map(x=>`<li>${x}</li>`).join('');
+document.querySelectorAll('.map-pin').forEach(b=>b.classList.toggle('active',Number(b.dataset.step)===current));
+$('progress').innerHTML=steps.map((_,idx)=>`<button aria-label="Ir al paso ${idx+1}" class="${idx===current?'active':''}" data-progress="${idx}"></button>`).join('');
+$('prev').disabled=current===0;$('prev').style.opacity=current===0?'.45':'1';$('next').textContent=current===steps.length-1?'Volver al inicio ↺':'Continuar →';
+}
+function next(){if(current===steps.length-1){showStep(0);$('recorrido').scrollIntoView({behavior:'smooth'});}else{showStep(current+1)}}
+$('next').addEventListener('click',next);$('topContinue').addEventListener('click',()=>{$('recorrido').scrollIntoView({behavior:'smooth'});next()});$('start').addEventListener('click',()=>{$('recorrido').scrollIntoView({behavior:'smooth'});showStep(0)});$('prev').addEventListener('click',()=>showStep(current-1));
+document.querySelectorAll('.map-pin').forEach(b=>b.addEventListener('click',()=>showStep(Number(b.dataset.step))));
+$('progress').addEventListener('click',e=>{const b=e.target.closest('[data-progress]');if(b)showStep(Number(b.dataset.progress))});
+const city=$('city');for(let i=0;i<50;i++){const el=document.createElement('div');el.className=(i%4===0?'tree':'house');el.style.gridColumn=(i%10+1);el.style.gridRow=(Math.floor(i/10)+1);city.appendChild(el)}
+const modal=$('modal'),modalImg=$('modalImage');document.querySelectorAll('[data-zoom]').forEach(img=>img.addEventListener('click',()=>{modalImg.src=img.src;modalImg.alt=img.alt;modal.classList.add('open')}));$('closeModal').addEventListener('click',()=>modal.classList.remove('open'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open');if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')showStep(current-1)});
+showStep(0);
+</script>
+</body></html>
